@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { 
+import {
   withStyles,
   Appear,
   Link,
@@ -18,7 +18,7 @@ const styles = () => ({
 });
 
 const Upcoming = props => {
-  const { 
+  const {
     entered,
     launches,
     classes,
@@ -28,10 +28,9 @@ const Upcoming = props => {
   const tableBody = useMemo(() => {
     return launches?.filter((launch) => launch.upcoming)
       .map((launch) => {
-        console.log(launch)
         return <tr key={String(launch.flightNumber)}>
           <td>
-            <Clickable style={{color:"red"}}>
+            <Clickable style={{ color: "red" }}>
               <Link className={classes.link} onClick={() => abortLaunch(launch.flightNumber)}>
                 ✖
               </Link>
@@ -47,17 +46,17 @@ const Upcoming = props => {
   }, [launches, abortLaunch, classes.link]);
 
   return <Appear id="upcoming" animate show={entered}>
-    <Paragraph>Upcoming missions including both SpaceX launches and newly scheduled Zero to Mastery rockets.</Paragraph>
+    <Paragraph>Upcoming missions including both SpaceX launches and newly scheduled Katana rockets.</Paragraph>
     <Words animate>Warning! Clicking on the ✖ aborts the mission.</Words>
     <Table animate show={entered}>
-      <table style={{tableLayout: "fixed"}}>
+      <table style={{ tableLayout: "fixed" }}>
         <thead>
           <tr>
-            <th style={{width: "3rem"}}></th>
-            <th style={{width: "3rem"}}>No.</th>
-            <th style={{width: "10rem"}}>Date</th>
-            <th style={{width: "11rem"}}>Mission</th>
-            <th style={{width: "11rem"}}>Rocket</th>
+            <th style={{ width: "3rem" }}></th>
+            <th style={{ width: "3rem" }}>No.</th>
+            <th style={{ width: "10rem" }}>Date</th>
+            <th style={{ width: "11rem" }}>Mission</th>
+            <th style={{ width: "11rem" }}>Rocket</th>
             <th>Destination</th>
           </tr>
         </thead>
